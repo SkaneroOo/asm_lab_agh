@@ -1,0 +1,174 @@
+In archive libstat.a:
+
+gcd_static.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <gcd_a>:
+   0:	57                   	push   %rdi
+   1:	56                   	push   %rsi
+   2:	e8 00 00 00 00       	call   7 <gcd_a+0x7>
+   7:	5e                   	pop    %rsi
+   8:	5f                   	pop    %rdi
+   9:	57                   	push   %rdi
+   a:	56                   	push   %rsi
+   b:	48 89 f2             	mov    %rsi,%rdx
+   e:	48 89 fe             	mov    %rdi,%rsi
+  11:	48 c7 c7 00 00 00 00 	mov    $0x0,%rdi
+  18:	48 31 c0             	xor    %rax,%rax
+  1b:	e8 00 00 00 00       	call   20 <gcd_a+0x20>
+  20:	5e                   	pop    %rsi
+  21:	5f                   	pop    %rdi
+  22:	89 f8                	mov    %edi,%eax
+  24:	83 fe 00             	cmp    $0x0,%esi
+  27:	74 11                	je     3a <the_end>
+  29:	39 fe                	cmp    %edi,%esi
+  2b:	74 0d                	je     3a <the_end>
+  2d:	31 d2                	xor    %edx,%edx
+  2f:	f7 f6                	div    %esi
+  31:	89 f7                	mov    %esi,%edi
+  33:	89 d6                	mov    %edx,%esi
+  35:	e8 00 00 00 00       	call   3a <the_end>
+
+000000000000003a <the_end>:
+  3a:	50                   	push   %rax
+  3b:	e8 00 00 00 00       	call   40 <the_end+0x6>
+  40:	58                   	pop    %rax
+  41:	c3                   	ret    
+
+Disassembly of section .data:
+
+0000000000000000 <params>:
+   0:	43 61                	rex.XB (bad) 
+   2:	6c                   	insb   (%dx),%es:(%rdi)
+   3:	6c                   	insb   (%dx),%es:(%rdi)
+   4:	65 64 20 47 43       	gs and %al,%fs:0x43(%rdi)
+   9:	44 5f                	rex.R pop %rdi
+   b:	41 28 25 64 2c 25 64 	sub    %spl,0x64252c64(%rip)        # 64252c76 <the_end+0x64252c3c>
+  12:	29 0a                	sub    %ecx,(%rdx)
+	...
+
+Disassembly of section .note.gnu.property:
+
+0000000000000000 <.note.gnu.property>:
+   0:	04 00                	add    $0x0,%al
+   2:	00 00                	add    %al,(%rax)
+   4:	20 00                	and    %al,(%rax)
+   6:	00 00                	add    %al,(%rax)
+   8:	05 00 00 00 47       	add    $0x47000000,%eax
+   d:	4e 55                	rex.WRX push %rbp
+   f:	00 02                	add    %al,(%rdx)
+  11:	00 01                	add    %al,(%rcx)
+  13:	c0 04 00 00          	rolb   $0x0,(%rax,%rax,1)
+	...
+  1f:	00 01                	add    %al,(%rcx)
+  21:	00 01                	add    %al,(%rcx)
+  23:	c0 04 00 00          	rolb   $0x0,(%rax,%rax,1)
+  27:	00 01                	add    %al,(%rcx)
+  29:	00 00                	add    %al,(%rax)
+  2b:	00 00                	add    %al,(%rax)
+  2d:	00 00                	add    %al,(%rax)
+	...
+
+print_rsp_static.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <print_call_rsp>:
+   0:	8b 14 25 00 00 00 00 	mov    0x0,%edx
+   7:	ff c2                	inc    %edx
+   9:	89 14 25 00 00 00 00 	mov    %edx,0x0
+  10:	48 c7 c7 00 00 00 00 	mov    $0x0,%rdi
+  17:	48 89 e6             	mov    %rsp,%rsi
+  1a:	48 83 c6 08          	add    $0x8,%rsi
+  1e:	31 c0                	xor    %eax,%eax
+  20:	e8 00 00 00 00       	call   25 <print_call_rsp+0x25>
+  25:	c3                   	ret    
+
+0000000000000026 <print_ret_rsp>:
+  26:	8b 14 25 00 00 00 00 	mov    0x0,%edx
+  2d:	ff 0c 25 00 00 00 00 	decl   0x0
+  34:	48 c7 c7 00 00 00 00 	mov    $0x0,%rdi
+  3b:	48 89 e6             	mov    %rsp,%rsi
+  3e:	48 83 c6 08          	add    $0x8,%rsi
+  42:	31 c0                	xor    %eax,%eax
+  44:	e8 00 00 00 00       	call   49 <print_ret_rsp+0x23>
+  49:	c3                   	ret    
+
+Disassembly of section .data:
+
+0000000000000000 <counter>:
+   0:	00 00                	add    %al,(%rax)
+	...
+
+0000000000000004 <outstr1>:
+   4:	72 73                	jb     79 <cntr_str2+0x28>
+   6:	70 3d                	jo     45 <cntr_str1+0x7>
+   8:	25 6c 78 20 63       	and    $0x6320786c,%eax
+   d:	61                   	(bad)  
+   e:	6c                   	insb   (%dx),%es:(%rdi)
+   f:	6c                   	insb   (%dx),%es:(%rdi)
+  10:	2c 20                	sub    $0x20,%al
+  12:	20 63 6f             	and    %ah,0x6f(%rbx)
+  15:	75 6e                	jne    85 <cntr_str2+0x34>
+  17:	74 65                	je     7e <cntr_str2+0x2d>
+  19:	72 20                	jb     3b <outstr2+0x1a>
+  1b:	3d 20 25 64 0a       	cmp    $0xa642520,%eax
+	...
+
+0000000000000021 <outstr2>:
+  21:	72 73                	jb     96 <cntr_str2+0x45>
+  23:	70 3d                	jo     62 <cntr_str2+0x11>
+  25:	25 6c 78 20 72       	and    $0x7220786c,%eax
+  2a:	65 74 2c             	gs je  59 <cntr_str2+0x8>
+  2d:	20 20                	and    %ah,(%rax)
+  2f:	20 63 6f             	and    %ah,0x6f(%rbx)
+  32:	75 6e                	jne    a2 <cntr_str2+0x51>
+  34:	74 65                	je     9b <cntr_str2+0x4a>
+  36:	72 20                	jb     58 <cntr_str2+0x7>
+  38:	3d 20 25 64 0a       	cmp    $0xa642520,%eax
+	...
+
+000000000000003e <cntr_str1>:
+  3e:	26 63 6f 75          	es movsxd 0x75(%rdi),%ebp
+  42:	6e                   	outsb  %ds:(%rsi),(%dx)
+  43:	74 65                	je     aa <cntr_str2+0x59>
+  45:	72 3d                	jb     84 <cntr_str2+0x33>
+  47:	25 6c 78 20 63       	and    $0x6320786c,%eax
+  4c:	61                   	(bad)  
+  4d:	6c                   	insb   (%dx),%es:(%rdi)
+  4e:	6c                   	insb   (%dx),%es:(%rdi)
+  4f:	0a 00                	or     (%rax),%al
+
+0000000000000051 <cntr_str2>:
+  51:	26 63 6f 75          	es movsxd 0x75(%rdi),%ebp
+  55:	6e                   	outsb  %ds:(%rsi),(%dx)
+  56:	74 65                	je     bd <cntr_str2+0x6c>
+  58:	72 3d                	jb     97 <cntr_str2+0x46>
+  5a:	25 6c 78 20 72       	and    $0x7220786c,%eax
+  5f:	65 74 0a             	gs je  6c <cntr_str2+0x1b>
+	...
+
+Disassembly of section .note.gnu.property:
+
+0000000000000000 <.note.gnu.property>:
+   0:	04 00                	add    $0x0,%al
+   2:	00 00                	add    %al,(%rax)
+   4:	20 00                	and    %al,(%rax)
+   6:	00 00                	add    %al,(%rax)
+   8:	05 00 00 00 47       	add    $0x47000000,%eax
+   d:	4e 55                	rex.WRX push %rbp
+   f:	00 02                	add    %al,(%rdx)
+  11:	00 01                	add    %al,(%rcx)
+  13:	c0 04 00 00          	rolb   $0x0,(%rax,%rax,1)
+	...
+  1f:	00 01                	add    %al,(%rcx)
+  21:	00 01                	add    %al,(%rcx)
+  23:	c0 04 00 00          	rolb   $0x0,(%rax,%rax,1)
+  27:	00 01                	add    %al,(%rcx)
+  29:	00 00                	add    %al,(%rax)
+  2b:	00 00                	add    %al,(%rax)
+  2d:	00 00                	add    %al,(%rax)
+	...
