@@ -12,8 +12,8 @@
 
 #include "eval_time.h" 
 
-#define BASE			2.0
-#define LOG_OF_ITERATIONS	24
+#define BASE			10.0
+#define LOG_OF_ITERATIONS	9
 
 long double fun_x87ld( long int iter );		// function in x87.s
 long double fun_x87d( long int iter );		// function in x87.s
